@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{msg}}</h1>
+    <Todos v-bind:todos="todos"></Todos>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Todos from './components/Todos'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Todos,
+  },
+  data(){
+    return{
+      msg:"This is app component",
+      todos:[
+        {name:"Task1", id:1, completed:false},
+        {name:"Task2", id:2, completed:true},
+        {name:"Task3", id:3, completed:false},
+      ],
+    }
   }
 }
 </script>
@@ -19,10 +29,8 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+  font-size: 16px;
+  text-align: center;
 }
 </style>
